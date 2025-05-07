@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'Sansita One';
+    src: url('/SansitaOne.ttf') format('truetype');
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    font-family: 'Sansita One', sans-serif;
+    background: #ffffff;
+    color: #222222;
+  }
+  
+  h1, h2, h3 {
+    margin: 0.5rem 0;
+  }
+  
+  button {
+    font-family: inherit;
+    font-size: 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:focus {
+    outline: 2px solid #222;
+  }
+  
+  footer button {
+    padding: 0.5rem;
+  }
+  

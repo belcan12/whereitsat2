@@ -1,0 +1,23 @@
+{
+    "name": "whereitsat2",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview"
+    },
+    "dependencies": {
+        "framer-motion": "^10.12.16",
+        "react": "^18.0.0",
+        "react-confetti": "^6.4.0",
+        "react-dom": "^18.0.0",
+        "react-router-dom": "^6.14.1",
+        "uuid": "^9.0.0",
+        "zustand": "^4.4.0"
+    },
+    "devDependencies": {
+        "@vitejs/plugin-react": "^4.0.0",
+        "vite": "^4.0.0"
+    }
+}
