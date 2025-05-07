@@ -7,16 +7,41 @@ export default function TicketCard({ ticket }) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
       style={{
-        border: '1px solid #ccc',
+        background: '#FFFFFF',
+        color: '#000000',
         borderRadius: '6px',
         padding: '0.75rem',
-        margin: '0.5rem 0'
+        margin: '0.5rem 0',
+        maxWidth: '400px',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        textAlign: 'center',      
       }}
     >
-      <p><strong>Event:</strong> {ticket.eventTitle}</p>
-      <p><strong>Biljett‑ID:</strong> {ticket.ticketId}</p>
-      <p><strong>Sektion:</strong> {ticket.section}</p>
-      <p><strong>Plats:</strong> {ticket.seat}</p>
+      {/* Eventnamn */}
+      <p style={{
+        margin: '0 0 0.5rem 0',
+        fontSize: '1.1rem',
+        color: '#F56B9A'
+      }}>
+        <strong>{ticket.eventTitle}</strong>
+      </p>
+
+      {/* Sektion och Plats på samma rad */}
+      <div style={{
+        display: 'flex',
+        justifyContent: 'center',
+        gap: '1.5rem',          
+        marginBottom: '0.5rem'
+      }}>
+        <p style={{ margin: 0 }}><strong>Sektion:</strong> {ticket.section}</p>
+        <p style={{ margin: 0 }}><strong>Plats:</strong> {ticket.seat}</p>
+      </div>
+
+      {/* Biljett-ID */}
+      <p style={{ margin: 0 }}>
+        <strong>Biljett-ID:</strong> {ticket.ticketId}
+      </p>
     </motion.div>
   );
 }

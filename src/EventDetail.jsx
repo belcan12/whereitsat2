@@ -32,20 +32,18 @@ export default function EventDetail() {
   }, [id, event]);
 
   if (loading) {
-    return <main style={{ padding: '1rem' }}><p>Laddar…</p></main>;
+    return <main style={{ padding: '1rem' }}><p style={{ color: '#FFFFFF' }}>Laddar…</p></main>;
   }
   if (error) {
     return (
-      <main style={{ padding: '1rem', color: 'red' }}>
-        <p>Fel: {error}</p>
+      <main style={{ padding: '1rem' }}>
+        <p style={{ color: 'red' }}>Fel: {error}</p>
       </main>
     );
   }
 
-  // Beräkna totalpris
   const totalPrice = event.price * quantity;
 
-  // Köp‐funktion
   const handleBuy = () => {
     const section = 'A';
     const start = Math.floor(Math.random() * 100);
@@ -65,46 +63,84 @@ export default function EventDetail() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      style={{ padding: '1rem' }}
+      style={{
+        padding: '1rem',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        paddingBottom: '4rem'  
+      }}
     >
       <button
         onClick={() => navigate(-1)}
-        style={{ marginBottom: '1rem' }}
+        style={{ alignSelf: 'flex-start', marginBottom: '1rem', color: '#FFFFFF' }}
       >
         ← Tillbaka
       </button>
 
-      {/* Event‐information */}
+      
+      <p style={{
+        color: '#FFFFFF',
+        textAlign: 'center',
+        marginBottom: '1rem',
+        fontSize: '1rem'
+      }}>
+        You are about to score some tickets to…
+      </p>
+
       <article style={{
-        border: '1px solid #ddd',
+        background: '#FFFFFF',
+        color: '#000000',
         borderRadius: 8,
         padding: '1rem',
+        width: '100%',
+        maxWidth: '400px',
+        textAlign: 'center',   
         marginBottom: '1rem'
       }}>
-        <h2>{event.name}</h2>
-        <p>{event.when.date} • {event.when.from}–{event.when.to}</p>
-        <p>{event.where} • {event.price > 0 ? event.price + ' kr' : 'Gratis'}</p>
+        <h2 style={{ margin: 0, color: '#F56B9A' }}>{event.name}</h2>
+        <p style={{ margin: '0.5rem 0' }}>
+          {event.when.date} • {event.when.from}–{event.when.to}
+        </p>
+        <p style={{ margin: 0 }}>
+          {event.where} • {event.price > 0 ? event.price + ' kr' : 'Gratis'}
+        </p>
       </article>
 
-      {/* Kvantitetsväljare */}
       <div style={{
         display: 'flex',
         alignItems: 'center',
+        justifyContent: 'center',
         gap: '1rem',
         marginBottom: '1rem'
       }}>
-        <button onClick={() => setQuantity(q => Math.max(1, q - 1))} aria-label="Minska antal">−</button>
-        <span style={{ minWidth: '1.5rem', textAlign: 'center' }}>{quantity}</span>
-        <button onClick={() => setQuantity(q => q + 1)} aria-label="Öka antal">＋</button>
+        <button onClick={() => setQuantity(q => Math.max(1, q - 1))}>−</button>
+        <span style={{ minWidth: '1.5rem', textAlign: 'center', color: '#FFFFFF' }}>
+          {quantity}
+        </span>
+        <button onClick={() => setQuantity(q => q + 1)}>＋</button>
       </div>
 
-      {/* Totalpris */}
-      <p style={{ marginBottom: '1rem', fontWeight: 'bold' }}>
-        Total: {event.price > 0 ? `${totalPrice} kr` : 'Gratis'}
+      <p style={{
+        marginBottom: '1rem',
+        fontWeight: 'bold',
+        color: '#FFFFFF',
+        textAlign: 'center'
+      }}>
+        Total: {event.price > 0 ? `${totalPrice} kr` : 'Gratis'}
       </p>
 
-      {/* Köp‐knapp */}
-      <button onClick={handleBuy}>
+      <button
+        onClick={handleBuy}
+        style={{
+          backgroundColor: '#37AEAB',
+          color: '#FFFFFF',
+          padding: '0.75rem 1.5rem',
+          borderRadius: '4px',
+          border: 'none',
+          cursor: 'pointer'
+        }}
+      >
         Köp {quantity} biljett{quantity > 1 ? 'er' : ''}
       </button>
     </motion.main>

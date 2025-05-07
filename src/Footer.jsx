@@ -5,7 +5,8 @@ export default function Footer() {
   const loc = useLocation().pathname;
 
   const btnStyle = (path) => ({
-    fontWeight: loc === path ? 'bold' : 'normal'
+    fontWeight: loc === path ? 'bold' : 'normal',
+    color: '#FFFFFF',
   });
 
   return (
@@ -15,7 +16,7 @@ export default function Footer() {
       width: '100%',
       display: 'flex',
       justifyContent: 'space-around',
-      background: '#eee',
+      backgroundColor: '#F56B9A',
       padding: '0.5rem 0'
     }}>
       <button style={btnStyle('/')} onClick={() => nav('/')}>Home</button>
